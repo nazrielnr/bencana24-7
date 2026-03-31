@@ -5,13 +5,6 @@
 
 ---
 
-## 👥 Informasi Peserta
-| No | Nama | Email Dicoding |
-|---|---|---|
-| 1 | Nazriel Nur Rifky | anonymousblack987@gmail.com |
-
----
-
 ## ⚠️ Problem Statement
 Indonesia merupakan wilayah "Ring of Fire" dengan frekuensi bencana alam (gempa bumi dan cuaca ekstrem) yang sangat tinggi. Permasalahan utama yang dihadapi masyarakat adalah:
 * **Informasi Teknis yang Rumit**: Data dari otoritas seringkali teknis (koordinat, magnitude, MB) yang sulit dipahami dampaknya secara instan oleh warga awam.
