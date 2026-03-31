@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  .chat-input-container {
+    @apply bg-white border border-slate-200 shadow-[0_2px_12px_rgba(0,0,0,0.04)] rounded-2xl transition-all duration-200 focus-within:border-slate-300 focus-within:shadow-[0_4px_24px_rgba(0,0,0,0.08)];
+  }
+
+  .frosted-backdrop {
+    background-color: rgba(255, 255, 255, 0.56);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+  }
+
+  .frosted-backdrop-strong {
+    background-color: rgba(255, 255, 255, 0.64);
+    backdrop-filter: blur(18px) saturate(165%);
+    -webkit-backdrop-filter: blur(18px) saturate(165%);
+  }
+  
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-xl border border-slate-200/60 shadow-sm;
+  }
+
+  .animate-rainfall {
+    animation: rainfall linear infinite;
+    animation-fill-mode: both;
+    opacity: 0;
+  }
+
+  .animate-lightning {
+    animation: lightning 12s infinite;
+  }
+
+  .animate-lightning-strike {
+    animation: lightningStrike 12s infinite;
+  }
+}
+
+@keyframes rainfall {
+  0% {
+    transform: translate(5vh, -20vh) rotate(5deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: var(--drop-opacity, 0.5);
+  }
+  85% {
+    opacity: var(--drop-opacity, 0.5);
+  }
+  100% {
+    transform: translate(-10vh, 100vh) rotate(5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightning {
+  0%, 94% { opacity: 0; }
+  95% { opacity: 0.15; }
+  96% { opacity: 0; }
+  97% { opacity: 0.3; }
+  98% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes lightningStrike {
+  0%, 94% { opacity: 0; transform: translateY(-50px) scaleY(0.5); }
+  95% { opacity: 0.4; transform: translateY(0) scaleY(1); }
+  96% { opacity: 0; transform: translateY(-20px) scaleY(0.8); }
+  97% { opacity: 0.7; transform: translateY(0) scaleY(1.2); }
+  99%, 100% { opacity: 0; transform: translateY(-50px) scaleY(0.5); }
+}
+
+/* Map Leaflet Popup Utility */
+.leaflet-popup-content-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+}
+.leaflet-popup-tip-container {
+  display: none !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+@layer utilities {
+  @keyframes slideBlur {
+    0% { filter: blur(8px); opacity: 0; transform: translateY(6px); }
+    100% { filter: blur(0px); opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-blur {
+    animation: slideBlur 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-area-pb {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom)) !important;
+  }
+}
+
+
+html, body, #root {
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+

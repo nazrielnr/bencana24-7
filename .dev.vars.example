@@ -1,0 +1,8 @@
+# Copy this file to .dev.vars for local Worker secrets.
+# Do not commit .dev.vars.
+
+OPENAI_COMPAT_BASE_URL=https://openrouter.ai/api/v1
+OPENAI_COMPAT_API_KEY=YOUR_OPENROUTER_API_KEY
+OPENROUTER_SITE_URL=http://localhost:3000
+OPENROUTER_APP_NAME=siaga
+AI_MODEL=stepfun/step-3.5-flash:free
